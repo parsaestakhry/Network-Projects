@@ -1,5 +1,8 @@
+import os
 import socket
 import random
+import sys
+import threading
 
 ADDR = socket.gethostbyname(socket.gethostname())
 PORT = 8080
@@ -11,7 +14,10 @@ def read_keys(file_path):
     return [key.strip() for key in keys]
 
 def get_random_key(keys):
-    return random.choice(keys)
+    choice = str(random.choice(keys))
+    split_choice = choice.split(":")[1]
+    print(split_choice)
+    return split_choice
 
 def start_server(host=ADDR, port=PORT):
     keys = read_keys(KEYS_FILE)
@@ -24,13 +30,20 @@ def start_server(host=ADDR, port=PORT):
             print(f'Connected by {addr}')
             while True:
                 data = conn.recv(1024)
-                decoded = data.decode()
                 if not data:
                     break
+                decoded = data.decode()
+                ascii_values = [ord(char) for char in decoded]
+                print(f'ASCII values of received data: {ascii_values}')
+                
                 print(f'Received from client uppercased : {decoded.upper()}')
                 random_key = get_random_key(keys)
                 print(f'Random key selected: {random_key}')
                 conn.sendall(data)
+                
 
+            
+            
+                            
 if __name__ == "__main__":
     start_server()
