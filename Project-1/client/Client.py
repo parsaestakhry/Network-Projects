@@ -9,8 +9,8 @@ def start_client(host=ADDR, port=PORT):\
         # printing the connection
         print(f'Connected to server at {host}:{port}')
         while True:
-            message = input("Enter message to send (or 'exit' to quit): ")
-            if message.lower() == 'exit':
+            message = input("Enter message to send (or 'q' to quit): ")
+            if message.lower() == 'q':
                 break
             s.sendall(message.encode())
             data = s.recv(1024)
