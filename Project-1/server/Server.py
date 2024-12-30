@@ -15,8 +15,7 @@ def read_keys(file_path):
 
 def get_random_key(keys):
     choice = str(random.choice(keys))
-    split_choice = choice.split(":")[1]
-    print(split_choice)
+    split_choice = choice.split(":")
     return split_choice
 
 def start_server(host=ADDR, port=PORT):
@@ -34,12 +33,20 @@ def start_server(host=ADDR, port=PORT):
                     break
                 decoded = data.decode()
                 ascii_values = [ord(char) for char in decoded]
-                print(f'ASCII values of received data: {ascii_values}')
+                print(f'\nASCII values of received data: {ascii_values}')
                 
                 print(f'Received from client uppercased : {decoded.upper()}')
                 random_key = get_random_key(keys)
-                print(f'Random key selected: {random_key}')
-                conn.sendall(data)
+                random_key_value = int(random_key[1])
+                random_key_index = int(random_key[0])
+                
+                
+                summed_values = [value + random_key_value for value in ascii_values]
+                print(f'Summed values: {summed_values}')
+                
+                print(f'Random key selected: {random_key_value} with index {random_key_index}')
+                response = f'Summed values: {summed_values}, Index: {random_key_index}'
+                conn.sendall(response.encode())
                 
 
             
