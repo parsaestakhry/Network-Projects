@@ -1,10 +1,10 @@
 contact_id,contact_name,contact_number,contact_address,contact_email
 1,John Doe,555-1234,123 Elm St,johndoe@example.com
-2,Jane Smith,555-5678,456 Oak St,janesmith@example.com
+2,Jane Smith,555-1234,123 Elm St,janesmith@example.com
 3,Bob Johnson,555-8765,789 Pine St,bobjohnson@example.com
 4,Alice Brown,555-4321,101 Maple St,alicebrown@example.com
 5,Charlie Davis,555-6789,202 Birch St,charliedavis@example.com
-6,Emily White,555-3456,303 Cedar St,emilywhite@example.com
+6,Emily White,555-3456,303 Cedar St,johndoe@example.com
 7,Michael Green,555-7890,404 Spruce St,michaelgreen@example.com
 8,Sarah Black,555-2345,505 Willow St,sarahblack@example.com
 9,David Blue,555-6781,606 Fir St,davidblue@example.com
