@@ -1,4 +1,5 @@
 import csv
+import os
 import socket
 from urllib.parse import urlparse, parse_qs
 
@@ -8,6 +9,7 @@ PORT = 8080
 
 def find_from_id(id: int):
     # Find the data from the id
+    print(os.getcwd())
     with open("contacts.csv", mode="r") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
@@ -80,7 +82,7 @@ def start_server(host=ADDR, port=PORT):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         # binding the socket to the host and port
         s.bind((host, port))
-        
+        print(os.getcwd())
         # listening for incoming connections
         s.listen(5)
         # printing the host and port
