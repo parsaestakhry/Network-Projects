@@ -80,6 +80,7 @@ def start_server(host=ADDR, port=PORT):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         # binding the socket to the host and port
         s.bind((host, port))
+        
         # listening for incoming connections
         s.listen(5)
         # printing the host and port
